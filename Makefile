@@ -62,7 +62,7 @@ watch-mkdocs: clean
 	mkdocs serve
 
 # Run Webpack and MkDocs in watch mode
-watch: node_modules watch-webpack watch-mkdocs
+watch: node_modules watch-webpack
 
 # -----------------------------------------------------------------------------
 

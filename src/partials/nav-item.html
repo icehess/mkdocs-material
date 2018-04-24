@@ -28,7 +28,7 @@
 
 <!-- Main navigation item with nested items -->
 {% if nav_item.children %}
-  <li class="{{ class }} md-nav__item--nested">
+  <li class="{{ class }} kz-nav md-nav__item--nested" data-md-level="{{ level }}">
 
     <!-- Active checkbox expands items contained within nested section -->
     {% if nav_item.active %}
@@ -63,7 +63,7 @@
 
 <!-- Currently active page -->
 {% elif nav_item == page %}
-  <li class="{{ class }}">
+  <li class="{{ class }} kz-nav" data-md-level="{{ level }}">
     {% set toc_ = page.toc %}
 
     <!-- Active checkbox expands items contained within nested section -->
@@ -94,7 +94,7 @@
 
 <!-- Main navigation item -->
 {% else %}
-  <li class="{{ class }}">
+  <li class="{{ class }} kz-nav" data-md-level="{{ level }}">
     <a href="{{ nav_item.url }}" title="{{ nav_item.title }}"
         class="md-nav__link">
       {{ nav_item.title }}
