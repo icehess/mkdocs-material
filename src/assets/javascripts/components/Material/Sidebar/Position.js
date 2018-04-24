@@ -60,23 +60,13 @@ export default class Position {
     this.header_ = ref
 
     /* Initialize current height and test whether header is fixed */
-    this.height_ = 0
-    this.pad_ = window.getComputedStyle(this.header_).position === "fixed"
+    this.active_ = false;
   }
 
   /**
    * Initialize sidebar state
    */
-  setup() {
-    const top = Array.prototype.reduce.call(
-      this.parent_.children, (offset, child) => {
-        return Math.max(offset, child.offsetTop)
-      }, 0)
-
-    /* Set lock offset for element with largest top offset */
-    this.offset_ = top - (this.pad_ ? this.header_.offsetHeight : 0)
-    this.update()
-  }
+  setup() {}
 
   /**
    * Update locked state and height
@@ -90,38 +80,9 @@ export default class Position {
    * @param {Event?} ev - Event
    */
   update(ev) {
-    const offset  = window.pageYOffset
-    const visible = window.innerHeight
-
-    /* Update offset, in case window is resized */
-    if (ev && ev.type === "resize")
-      this.setup()
-
-    /* Set bounds of sidebar container - must be calculated on every run, as
-       the height of the content might change due to loading images etc. */
-    const bounds = {
-      top: this.pad_ ? this.header_.offsetHeight : 0,
-      bottom: this.parent_.offsetTop + this.parent_.offsetHeight
-    }
-
-    /* Calculate new offset and height */
-    const height = visible - bounds.top
-                 - Math.max(0, this.offset_ - offset)
-                 - Math.max(0, offset + visible - bounds.bottom)
-
-    /* If height changed, update element */
-    if (height !== this.height_)
-      this.el_.style.height = `${this.height_ = height}px`
-
-    /* Sidebar should be locked, as we're below parent offset */
-    if (offset >= this.offset_) {
-      if (this.el_.dataset.mdState !== "lock")
-        this.el_.dataset.mdState = "lock"
-
-    /* Sidebar should be unlocked, if locked */
-    } else if (this.el_.dataset.mdState === "lock") {
-      this.el_.dataset.mdState = ""
-    }
+    const active = window.pageYOffset >= this.header_.offsetTop
+    if (active !== this.active_)
+      this.el_.dataset.mdPosition = (this.active_ = active) ? "sticky" : ""
   }
 
   /**
@@ -129,7 +90,6 @@ export default class Position {
    */
   reset() {
     this.el_.dataset.mdState = ""
-    this.el_.style.height = ""
-    this.height_ = 0
+    this.active_ = false
   }
 }
