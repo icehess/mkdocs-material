@@ -905,6 +905,10 @@ svg.commercial .wordmark {
         font-size: 1.3rem;
     }
 
+    .md-sidebar--secondary .md-nav__item[data-md-level="1"] .md-nav {
+      padding: 0 1rem;
+    }
+
     .md-sidebar__scrollwrap {
       margin: 0;
     }
