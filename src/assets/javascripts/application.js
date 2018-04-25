@@ -257,9 +257,9 @@ function initialize(config) { // eslint-disable-line func-style
   //       "[data-md-component=header]")))
 
   /* Component: link blurring for table of contents */
-  new Material.Event.MatchMedia("(min-width: 960px)",
-    new Material.Event.Listener(window, "scroll",
-      new Material.Nav.Blur("[data-md-component=toc] [href]")))
+  // new Material.Event.MatchMedia("(min-width: 960px)",
+  //   new Material.Event.Listener(window, "scroll",
+  //     new Material.Nav.Blur("[data-md-component=toc] [href]")))
 
   /* Component: collapsible elements for navigation */
   const collapsibles =
@@ -446,30 +446,28 @@ function initialize(config) { // eslint-disable-line func-style
   }
 
   /* Listener: handle tabbing context for better accessibility */
-  new Material.Event.Listener(document.body, "keydown", ev => {
-    if (ev.keyCode === 9) {
-      const labels = document.querySelectorAll(
-        "[data-md-component=navigation] .md-nav__link[for]:not([tabindex])")
-      Array.prototype.forEach.call(labels, label => {
-        if (label.offsetHeight)
-          label.tabIndex = 0
-      })
-    }
-  }).listen()
+  // new Material.Event.Listener(document.body, "keydown", ev => {
+  //   if (ev.keyCode === 9) {
+  //     const labels = document.querySelectorAll("[data-md-component=navigation] .md-nav__link[for]:not([tabindex])")
+  //     Array.prototype.forEach.call(labels, label => {
+  //       if (label.offsetHeight)
+  //         label.tabIndex = 0
+  //     })
+  //   }
+  // }).listen()
 
   /* Listener: reset tabbing behavior */
-  new Material.Event.Listener(document.body, "mousedown", () => {
-    const labels = document.querySelectorAll(
-      "[data-md-component=navigation] .md-nav__link[tabindex]")
-    Array.prototype.forEach.call(labels, label => {
-      label.removeAttribute("tabIndex")
-    })
-  }).listen()
+  // new Material.Event.Listener(document.body, "mousedown", () => {
+  //   const labels = document.querySelectorAll("[data-md-component=navigation] .md-nav__link[tabindex]")
+  //   Array.prototype.forEach.call(labels, label => {
+  //     label.removeAttribute("tabIndex")
+  //   })
+  // }).listen()
 
-  document.body.addEventListener("click", () => {
-    if (document.body.dataset.mdState === "tabbing")
-      document.body.dataset.mdState = ""
-  })
+  // document.body.addEventListener("click", () => {
+  //   if (document.body.dataset.mdState === "tabbing")
+  //     document.body.dataset.mdState = ""
+  // })
 
   /* Listener: close drawer when anchor links are clicked */
   new Material.Event.MatchMedia("(max-width: 959px)",
