@@ -137,7 +137,8 @@ module.exports = env => {
         /* Copy extra.css */
         {
           context: "src",
-          from: "assets/stylesheets/extra.css"
+          from: "assets/stylesheets/extra.css",
+          to: "assets/stylesheets/extra.css"
         },
 
         /* Copy and minify HTML */
