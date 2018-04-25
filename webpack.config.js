@@ -141,6 +141,13 @@ module.exports = env => {
           to: "assets/stylesheets/extra.css"
         },
 
+        /* Copy spyder.css */
+        {
+          context: "src",
+          from: "assets/stylesheets/spyder.css",
+          to: "assets/stylesheets/spyder.css"
+        },
+
         /* Copy and minify HTML */
         {
           context: "src",
