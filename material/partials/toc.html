@@ -5,9 +5,9 @@
     {% set toc_ = (toc_ | first).children %}
   {% endif %}
   {% if toc_ | first is defined %}
-    <label class="md-nav__title" for="toc">{{ lang.t("toc.title") }}</label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-level="0" data-md-scrollfix>
       {% for toc_item in toc_ %}
+        {% set level = 1 %}
         {% include "partials/toc-item.html" %}
       {% endfor %}
       {% if page.meta.source and page.meta.source | length > 0 %}

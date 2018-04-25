@@ -21,20 +21,30 @@
 -->
 
 <!-- Table of contents item -->
-<li class="md-nav__item">
-  <a href="{{ toc_item.url }}" title="{{ toc_item.title }}"
-      class="md-nav__link">
-    {{ toc_item.title }}
-  </a>
+{% if level == 1 or level == 2 or level == 3 %}
+  <li class="md-nav__item" data-md-level="{{ level }}">
+    {% if level == 1 %}
+      <a href="{{ toc_item.url }}" title="{{ toc_item.title }}"
+          class="md-nav__link md-nav__title">
+        {{ toc_item.title }}
+      </a>
+    {% else %}
+      <a href="{{ toc_item.url }}" title="{{ toc_item.title }}"
+          class="md-nav__link" style="color: #909099">
+        {{ toc_item.title }}
+      </a>
+    {% endif %}
 
-  <!-- Render nested item list -->
-  {% if toc_item.children %}
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        {% for toc_item in toc_item.children %}
-          {% include "partials/toc-item.html" %}
-        {% endfor %}
-      </ul>
-    </nav>
-  {% endif %}
-</li>
+    <!-- Render nested item list -->
+    {% if toc_item.children %}
+      <nav class="md-nav">
+        <ul class="md-nav__list">
+          {% for toc_item in toc_item.children %}
+            {% set level = level + 1 %}
+            {% include "partials/toc-item.html" %}
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+  </li>
+{% endif %}

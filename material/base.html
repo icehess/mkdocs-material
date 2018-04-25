@@ -47,6 +47,7 @@
         <title>{{ config.site_name }}</title>
       {% endif %}
     {% endblock %}
+    <link rel="stylesheet" href="https://cdn.2600hz.com/css/spyder-2.2.css">
     {% block styles %}
       <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/application.css">
       {% if palette.primary or palette.accent %}
@@ -79,6 +80,7 @@
   {% else %}
     <body dir="{{ lang.t('direction') }}">
   {% endif %}
+    {% include "global-nav.html" %}
     <svg class="md-svg">
       <defs>
         {% set platform = config.extra.repo_icon or config.repo_url %}

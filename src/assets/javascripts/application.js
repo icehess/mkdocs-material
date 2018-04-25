@@ -239,13 +239,13 @@ function initialize(config) { // eslint-disable-line func-style
       "scroll", "resize", "orientationchange"
     ], new Material.Tabs.Toggle("[data-md-component=tabs]")).listen()
 
-  /* Component: sidebar with navigation */
-  new Material.Event.MatchMedia("(min-width: 1220px)",
-    new Material.Event.Listener(window, [
-      "scroll", "resize", "orientationchange"
-    ], new Material.Sidebar.Position(
-      "[data-md-component=navigation] > .md-sidebar__scrollwrap",
-      ".md-typeset h1")))
+  // /* Component: sidebar with navigation */
+  // new Material.Event.MatchMedia("(min-width: 1220px)",
+  //   new Material.Event.Listener(window, [
+  //     "scroll", "resize", "orientationchange"
+  //   ], new Material.Sidebar.Position(
+  //     "[data-md-component=navigation]",
+  //     "[data-md-component=header]")))
 
   //  /* Component: sidebar with table of contents (missing on 404 page)  */
   // if (document.querySelector("[data-md-component=toc]"))

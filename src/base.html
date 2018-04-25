@@ -94,12 +94,12 @@
       {% endif %}
     {% endblock %}
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.2600hz.com/css/spyder-2.2.css" />
     <!-- Stylesheets -->
     {% block styles %}
 
       <!-- Theme-related stylesheets -->
-      <link rel="stylesheet" type="text/css"
-          href="{{ base_url }}/assets/stylesheets/application.css" />
+      <link rel="stylesheet" type="text/css" href="{{ base_url }}/assets/stylesheets/application.css" />
 
       <!-- Extra color palette -->
       {% if palette.primary or palette.accent %}
@@ -160,7 +160,7 @@
   {% else %}
     <body dir="{{ lang.t('direction') }}">
   {% endif %}
-
+    {% include "global-nav.html" %}
     <!-- Hidden container for inline SVGs -->
     <svg class="md-svg">
       <defs>

@@ -142,7 +142,7 @@ export default class Scrolling {
   reset() {
 
     /* Reset overflow scrolling on main pane */
-    this.el_.children[1].style.webkitOverflowScrolling = ""
+    this.el_.children[this.el_.children.length - 1].style.webkitOverflowScrolling = ""
 
     /* Find all toggles and check which one is active */
     const toggles = this.el_.querySelectorAll("[data-md-toggle]")
