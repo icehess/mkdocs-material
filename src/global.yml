@@ -3,13 +3,9 @@ site_author: '2600Hz'
 # Copyright
 copyright: 'Copyright &copy; 2010 - 2018 2600Hz'
 
-edit_uri: 'edit/master/'
 google_analytics: ['UA-27612027-1', '2600hz.com']
 
 use_directory_urls: true
-
-extra_css:
-  - assets/stylesheets/extra.css
 
 extra_javascript:
   - 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'

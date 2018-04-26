@@ -23,9 +23,12 @@
 import "../images/icons/bitbucket.svg"
 import "../images/icons/github.svg"
 import "../images/icons/gitlab.svg"
+import "../images/kazoo.svg"
 
+import "../stylesheets/spyder.css"
 import "../stylesheets/application.scss"
 import "../stylesheets/application-palette.scss"
+import "../stylesheets/extra.css"
 
 /* ----------------------------------------------------------------------------
  * Polyfills

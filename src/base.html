@@ -103,10 +103,10 @@
 
       <!-- Extra color palette -->
       {% if palette.primary or palette.accent %}
-        <link rel="stylesheet" type="text/css"
-            href="{{ base_url }}/assets/stylesheets/application-palette.css" />
+        <link rel="stylesheet" type="text/css" href="{{ base_url }}/assets/stylesheets/application-palette.css" />
       {% endif %}
     {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ base_url }}/assets/stylesheets/extra.css" />
 
     <!-- JavaScript libraries -->
     {% block libs %}

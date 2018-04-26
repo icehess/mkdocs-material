@@ -77,9 +77,7 @@ module.exports = env => {
         /* Cache busting for SVGs */
         {
           test: /\.svg$/,
-          use: `file-loader?name=[path][name]${
-            env && env.prod ? ".[md5:hash:hex:8]" : ""
-          }.[ext]&context=./src`
+          use: `file-loader?name=[path][name].[ext]&context=./src`
         }
       ]
     },
@@ -119,20 +117,6 @@ module.exports = env => {
         {
           context: "src",
           from: "**/*.{py,yml}"
-        },
-
-        /* Copy extra.css */
-        {
-          context: "src",
-          from: "assets/stylesheets/extra.css",
-          to: "assets/stylesheets/extra.css"
-        },
-
-        /* Copy spyder.css */
-        {
-          context: "src",
-          from: "assets/stylesheets/spyder.css",
-          to: "assets/stylesheets/spyder.css"
         },
 
         /* Copy and minify HTML */
@@ -180,7 +164,7 @@ module.exports = env => {
       modules: [
         path.resolve(__dirname, "node_modules")
       ],
-      extensions: [".js", ".jsx", ".scss"],
+      extensions: [".js", ".jsx", ".scss", ".css"],
       alias: {
         modernizr$: path.resolve(__dirname, ".modernizr-autorc")
       }
@@ -193,11 +177,13 @@ module.exports = env => {
   /* Compile stylesheets */
   for (const stylesheet of [
     "application.scss",
-    "application-palette.scss"
+    "application-palette.scss",
+    "spyder.css",
+    "extra.css"
   ]) {
     const plugin = new ExtractTextPlugin(
       `assets/stylesheets/${
-        stylesheet.replace(".scss",
+        stylesheet.replace(/(.scss|.css)/,
           env && env.prod ? ".[md5:contenthash:hex:8]" : ""
         )}.css`)
 

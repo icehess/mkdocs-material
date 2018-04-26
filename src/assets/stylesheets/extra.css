@@ -1,13 +1,3 @@
-.kazoo-bg-colors {
-    background: -moz-linear-gradient(-135deg, #2297ff 0%,#006bca 100%);
-    background: -webkit-linear-gradient(-135deg, #2297ff 0%,#006bca 100%);
-    background: -o-linear-gradient(-135deg, #2297ff 0%,#006bca 100%);
-    background: linear-gradient(-135deg,  #2297ff 0%,#006bca 100%);
-    background-repeat: no-repeat;
-    background-position: center, center;
-    background-size: cover, 100%;
-}
-
 body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
@@ -20,6 +10,22 @@ img {
     max-width: 100%;
     height: auto;
     border: 0;
+}
+
+/*
+=======================================================
+Global Header Styles
+=======================================================
+*/
+
+.kazoo-bg-colors {
+    background: -moz-linear-gradient(-135deg, #2297ff 0%,#006bca 100%);
+    background: -webkit-linear-gradient(-135deg, #2297ff 0%,#006bca 100%);
+    background: -o-linear-gradient(-135deg, #2297ff 0%,#006bca 100%);
+    background: linear-gradient(-135deg,  #2297ff 0%,#006bca 100%);
+    background-repeat: no-repeat;
+    background-position: center, center;
+    background-size: cover, 100%;
 }
 
 .reset {
@@ -742,7 +748,7 @@ SM Media Query
 
 /*
 =======================================================
-Theme Customizations
+Doc site Global Header Customizations
 =======================================================
 */
 
