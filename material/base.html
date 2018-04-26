@@ -48,13 +48,14 @@
         <title>{{ config.site_name }}</title>
       {% endif %}
     {% endblock %}
-    <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/spyder.css">
+    <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/spyder.a8cf2171.css">
     {% block styles %}
       <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/application.8d40d89b.css">
       {% if palette.primary or palette.accent %}
         <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/application-palette.6079476c.css">
       {% endif %}
     {% endblock %}
+    <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/extra.d0b8950f.css">
     {% block libs %}
       <script src="{{ base_url }}/assets/javascripts/modernizr.1aa3b519.js"></script>
     {% endblock %}
@@ -86,11 +87,11 @@
       <defs>
         {% set platform = config.extra.repo_icon or config.repo_url %}
         {% if "github" in platform %}
-          {% include "assets/images/icons/github.a4034fb1.svg" %}
+          {% include "assets/images/icons/github.svg" %}
         {% elif "gitlab" in platform %}
-          {% include "assets/images/icons/gitlab.348cdb3a.svg" %}
+          {% include "assets/images/icons/gitlab.svg" %}
         {% elif "bitbucket" in platform %}
-          {% include "assets/images/icons/bitbucket.4ebea66e.svg" %}
+          {% include "assets/images/icons/bitbucket.svg" %}
         {% endif %}
       </defs>
     </svg>
@@ -173,7 +174,7 @@
       {% endblock %}
     </div>
     {% block scripts %}
-      <script src="{{ base_url }}/assets/javascripts/application.1a5b8d3d.js"></script>
+      <script src="{{ base_url }}/assets/javascripts/application.11be6c91.js"></script>
       <script>app.initialize({version:"{{ mkdocs_version }}",url:{base:"{{ base_url }}"}})</script>
       {% for path in extra_javascript %}
         <script src="{{ path }}"></script>
