@@ -36,6 +36,7 @@
         <meta name="lang:{{ key }}" content="{{ lang.t(key) }}">
       {% endfor %}
       <link rel="shortcut icon" href="{{ base_url }}/{{ config.theme.favicon }}">
+      <link rel="apple-touch-icon" href="{{ base_url }}/assets/images/favicon-180.png">
       <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-2.7.2">
     {% endblock %}
     {% block htmltitle %}
@@ -173,26 +174,6 @@
     </div>
     {% block scripts %}
       <script src="{{ base_url }}/assets/javascripts/application.1a5b8d3d.js"></script>
-      {% if lang.t("search.language") != "en" %}
-        {% set languages = lang.t("search.language").split(",") %}
-        {% if languages | length and languages[0] != "" %}
-          {% set path = base_url + "/assets/javascripts/lunr" %}
-          <script src="{{ path }}/lunr.stemmer.support.js"></script>
-          {% for language in languages | map("trim") %}
-            {% if language != "en" %}
-              {% if language == "jp" %}
-                <script src="{{ path }}/tinyseg.js"></script>
-              {% endif %}
-              {% if language in ("da", "de", "du", "es", "fi", "fr", "hu", "it", "jp", "no", "pt", "ro", "ru", "sv", "tr") %}
-                <script src="{{ path }}/lunr.{{ language }}.js"></script>
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-          {% if languages | length > 1 %}
-            <script src="{{ path }}/lunr.multi.js"></script>
-          {% endif %}
-        {% endif %}
-      {% endif %}
       <script>app.initialize({version:"{{ mkdocs_version }}",url:{base:"{{ base_url }}"}})</script>
       {% for path in extra_javascript %}
         <script src="{{ path }}"></script>
