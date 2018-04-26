@@ -783,6 +783,11 @@ svg.commercial .wordmark {
     color: #a9b0b7;
 }
 
+.dark .local-nav li:hover,
+.dark .local-nav li.active {
+    color: #ff5933;
+}
+
 .dark .hs-cta-node a.cta_button {
     color: #a9b0b7 !important;
     border-color: #a9b0b7 !important;
