@@ -756,6 +756,10 @@ Doc site Global Header Customizations
     transform: translate(0, 7px);
 }
 
+.local-nav li.active i {
+    transform: rotate(180deg);
+}
+
 .drawer_item > a {
     padding-top: .3rem;
 }
@@ -768,6 +772,11 @@ Doc site Global Header Customizations
 .dark .local-header, .dark.local-header {
     background-color: #33383d;
     color: #a9b0b7;
+}
+
+.dark .md-hide.local-header.local-nav {
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .dark svg.commercial .wordmark,
@@ -962,6 +971,7 @@ svg.commercial .wordmark {
     .md-nav__item.kz-nav .md-nav__link {
         margin-top: 0;
         padding: .4em;
+        padding-left: 2.3rem;
         position: relative;
     }
 
@@ -988,6 +998,53 @@ svg.commercial .wordmark {
     }
 }
 
-.md-footer-social {
-    padding: .4rem 0 1.2rem;
+.md-footer-meta__inner.md-grid {
+  justify-content: space-between;
+  display: flex;
+}
+
+.md-footer-nav__inner.md-grid {
+  justify-content: flex-end;
+  display: flex;
+}
+
+@media only screen and (min-width: 45em) {
+  .md-footer-copyright {
+    width: inherit;
+    float: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .md-footer-social {
+    float: none;
+  }
+}
+
+.md-footer-nav__link--next {
+  width: inherit;
+  float: none;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%
+}
+
+.md-footer-nav__link--prev {
+  width: inherit;
+  float: none;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%
+ }
+
+@media only screen and (max-width: 76.1875em) {
+  .md-sidebar--primary {
+    top: 70px;
+  }
+}
+
+@media only screen and (max-width: 59.9375em) {
+  html .md-nav__link[for=toc] {
+    display: none;
+  }
 }

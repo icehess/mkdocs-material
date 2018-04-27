@@ -260,7 +260,7 @@ md-col breakpoint
 .md-no-gutter--right {
   padding-right: 0;
 }
-*.md-hide {
+.md-hide {
   display: none !important;
 }
 /*********** columns **********/
